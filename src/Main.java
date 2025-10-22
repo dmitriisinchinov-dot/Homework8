@@ -42,8 +42,11 @@ public class Main {
     public static void main(String[] args) {
         task1();
         printLeapYears(2011);
+        System.out.println();
         task2();
+        System.out.println();
         showMessage(2010, 1);
+        System.out.println();
         task3();
         printDays(150);
     }
