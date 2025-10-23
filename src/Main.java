@@ -1,4 +1,18 @@
 public class Main {
+    public static void main(String[] args) {
+        task1();
+        System.out.println();
+        printLeapYears(1576);
+        System.out.println();
+        task2();
+        System.out.println();
+        showMessage(2025, 1);
+        System.out.println();
+        task3();
+        System.out.println();
+        int days = printAmountDays(7);
+        System.out.println("Потребуется дней " + days);
+    }
     public static void task1() {
         System.out.println("Task 1");
     }
@@ -9,23 +23,26 @@ public class Main {
         System.out.println("Task 3");
     }
     public static void printLeapYears(int years) {
-        if ((years % 400 == 0) || (years % 4 == 0 && years % 100 != 0)) {
-            System.out.println(years + " год является високосным");
-        } else if (years < 1584) {
+        if (years < 1584) {
             System.out.println(years + " год не является високосным");
+        } else if ((years % 400 == 0) || (years % 4 == 0 && years % 100 != 0)) {
+            System.out.println(years + " год является високосным");
         } else {
             System.out.println(years + " год не является високосным");
         }
     }
-    public static void printDays(int deliveryDistance) {
+    public static int printAmountDays(int deliveryDistance) {
+        int term = 1;
         if (deliveryDistance <= 20) {
-            System.out.println("Потреуется дней: 1");
+            return term;
         } else if (deliveryDistance <= 60) {
-            System.out.println("Потребуется дней: 2");
+            term += 1;
+            return term;
         } else if (deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: 3");
+           term += 2;
+            return term;
         } else {
-            System.out.println("Доставки нет");
+            return 0;
         }
     }
     public static void showMessage(int clientDeviceYear, int clientOS) {
@@ -38,17 +55,6 @@ public class Main {
         } else if (clientOS == 1 && clientDeviceYear < 2015) {
             System.out.println("Установите облегчённую версию приложения для Android по ссылке");
         }
-    }
-    public static void main(String[] args) {
-        task1();
-        printLeapYears(2011);
-        System.out.println();
-        task2();
-        System.out.println();
-        showMessage(2010, 1);
-        System.out.println();
-        task3();
-        printDays(150);
     }
 }
 
